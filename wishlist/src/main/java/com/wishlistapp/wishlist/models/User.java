@@ -6,10 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Book {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-  private String title;
-    private String author;
+    private Long id;
+
+    private String username;
+    private String password;
+    private String name;
+    private String email;
+    private String homeAddress;
+
 }
+

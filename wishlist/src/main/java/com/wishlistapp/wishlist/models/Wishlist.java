@@ -13,28 +13,27 @@ public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-   private Long userID;
-    private List books = new ArrayList<>();
+    private Long userId;
+    private List<Book> books = new ArrayList<>();
 
     public Long getId() {
-        return id;
+        return this.id;
     }
-
 
     public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 
-    public Long getUserID() {
-        return userID;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
 

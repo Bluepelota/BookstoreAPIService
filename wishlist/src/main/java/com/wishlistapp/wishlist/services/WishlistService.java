@@ -15,7 +15,7 @@ public class WishlistService {
     private UserRepository userRepository;
 
 
-    private void createWishlist(Long userId){
+    public void createWishlist(Long userId){
         // Assuming user is already created. The userRepository must have a method findUserById(Long userId).
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
 
@@ -24,7 +24,7 @@ public class WishlistService {
         wishlist.setUserId(userId);
     }
 
-    private void addBookToWishlist(Long bookId, Long wishlistId){
+  public void addBookToWishlist(Long bookId, Long wishlistId){
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException("Book not found"));
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElseThrow(() -> new WishlistNotFoundException("Wishlist not found"));
 
@@ -36,7 +36,7 @@ public class WishlistService {
         }
     }
 
-    private void removeBookFromWishlist(Long bookId, Long wishlistId){
+    public void removeBookFromWishlist(Long bookId, Long wishlistId){
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException("Book not found"));
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElseThrow(() -> new WishlistNotFoundException("Wishlist not found"));
 
@@ -48,7 +48,7 @@ public class WishlistService {
         }
     }
 
-    private List<Book> getBooksInWishlist(Long wishlistId){
+    public List<Book> getBooksInWishlist(Long wishlistId){
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElseThrow(() -> new WishlistNotFoundException("Wishlist not found"));
         return wishlist.getBooks();
     }
