@@ -12,4 +12,7 @@ public class Book {
     private long id;
   private String title;
     private String author;
+  // @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "wishlist_id")
+
 }

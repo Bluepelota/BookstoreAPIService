@@ -1,5 +1,6 @@
 package com.wishlistapp.wishlist.models;
 
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +14,13 @@ public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "userId")
     private Long userId;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "wishlist_id")
+
     private List<Book> books = new ArrayList<>();
 
     public Long getId() {

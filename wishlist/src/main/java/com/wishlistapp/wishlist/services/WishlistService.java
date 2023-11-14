@@ -5,13 +5,17 @@ import com.wishlistapp.wishlist.exceptions.*;
 import com.wishlistapp.wishlist.models.*;
 import com.wishlistapp.wishlist.repositories.*;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Service
 public class WishlistService {
+    @Autowired
     private WishlistRepository wishlistRepository;
+    @Autowired
     private BookRepository bookRepository;
+    @Autowired
     private UserRepository userRepository;
 
 
@@ -22,6 +26,7 @@ public class WishlistService {
         // Create a new wishlist
         Wishlist wishlist = new Wishlist();
         wishlist.setUserId(userId);
+       wishlistRepository.save(wishlist);
     }
 
   public void addBookToWishlist(Long bookId, Long wishlistId){

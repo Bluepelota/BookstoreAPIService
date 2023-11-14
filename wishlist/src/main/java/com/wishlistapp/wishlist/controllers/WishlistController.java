@@ -22,7 +22,7 @@ public class WishlistController {
     }
 
     @PostMapping("/create") // Resultant endpoint = /api/wishlist/create
-    public ResponseEntity<Void> createWishlist(@RequestParam Long userId){
+    public ResponseEntity<Void> createWishlist(@RequestBody Long userId){
         wishlistService.createWishlist(userId);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
